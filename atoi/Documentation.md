@@ -45,6 +45,8 @@ Input parameters:
   - null string
   - empty string
   - non-empty string
+  - leading whitespaces
+  - leading zeroes
   
 - no combination of input parameters possible, as only1 input parameter exists
 Output parameters:
@@ -58,8 +60,7 @@ Output parameters:
 ## 5. Devise test cases
 
 
-Bugs:
-upper and lower boundary
+
 
 
 # Structural testing

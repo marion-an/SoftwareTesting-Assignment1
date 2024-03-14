@@ -12,7 +12,7 @@ converts a string to a 32-bit signed integer
       return converted integer, or 0 if the input is null or if there are no digits to be converted
 
 ### 2. Explore the program
-wrote some tests to see how the program behaves
+We wrote some tests to see how the program behaves
 
 ### 3. Explore possible inputs and outputs, and identify partitions
 Input parameters:
@@ -24,7 +24,8 @@ Input parameters:
     - leading zeroes
 
 - no combination of input parameters possible, as only1 input parameter exists
-  Output parameters:
+
+Output parameters:
 -  Integer (positive or negative)
 
 ### 4. Analyze the boundaries
@@ -57,7 +58,9 @@ see: [MyAtoiTest.java](atoi/src/test/java/zest/MyAtoiTest.java)
 ## Structural testing
 - line coverage: 100% (96% overall, because the method is static. Therefore, the class is never instantiated)
 - branch coverage: 88% --> 2 out of 18 branches missed
+
   line 19: if a '+' is in front of the integer within the string
+
   line 20: the case where `s.charAt(i) = '+'` and the condition evaluates to false
   add:
 - T16: `s` contains an integer with a '+' sign in the beginning
@@ -66,5 +69,11 @@ see: [MyAtoiTest.java](atoi/src/test/java/zest/MyAtoiTest.java)
 
 ## Mutation testing
 - mutation coverage: 95% --> 20 out of 21 mutants were killed
+
   line 28: changed conditional boundary --> survived
-- This case is already addressed T10 and T12. Because we get the same result when we evaluate the condition to true in line 28 in case the conditional operator is changed to '>=' or if it evaluates to false if the conditional operator is '>' for 2^31 - 1 and -2^31, the program doesn't realise that the mutant actually would be killed if the results would differ.
+
+- This case is already addressed T10 and T12. 
+
+  Because we get the same result when we evaluate the condition to true in line 28 in case the conditional operator is 
+  changed to '>=' or if it evaluates to false if the conditional operator is '>' for 2^31 - 1 and -2^31, the program 
+  doesn't realise that the mutant actually would be killed if the results would differ.

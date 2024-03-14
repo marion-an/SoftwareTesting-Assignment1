@@ -71,4 +71,13 @@ class MyAtoiTest {
     void splitIntegerByWhiteSpace(){
         assertEquals(123, MyAtoi.myAtoi("123abc456"));
     }
+
+    @Test
+    void minusSignNoInteger(){
+        assertEquals(0, MyAtoi.myAtoi("- abc"));
+    }
+    @Test
+    void plusSignInTheBeginning(){
+        assertEquals(123, MyAtoi.myAtoi("+123"));
+    }
 }

@@ -11,33 +11,7 @@ converts a string to a 32-bit signed integer
       return converted integer, or 0 if the input is null or if there are no digits to be converted
 
 ## 2. Explore the program
-
-```
-@Test
-void inputNull() {
-assertEquals(0, MyAtoi.myAtoi(null));
-}
-
-@Test
-void inputNoInteger() {
-    assertEquals(0, MyAtoi.myAtoi("abc"));
-}
-
-@Test
-void inputLeadingWhiteSpaces() {
-    assertEquals(-1, MyAtoi.myAtoi("              -1"));
-}
-
-@Test
-void charactersInFrontOfString() {
-    assertEquals(0, MyAtoi.myAtoi("avc123"));
-}
-
-@Test
-void gapInBetween() {
-    assertEquals(45, MyAtoi.myAtoi("   +45 78"));
-}
-```
+wrote some tests to see how the program behaves 
 
 ## 3. Explore possible inputs and outputs, and identify partitions
 Input parameters:
@@ -77,12 +51,16 @@ see: [MyAtoiTest.java](src/test/java/zest/MyAtoiTest.java)
 
 ## 7. Augment the test suite with creativity and experience
 - T14: `s` contains an integer which is split by a whitespace
-
-
-
+- T15: `s` starts with a '-' sign but no integers afterwards
 
 # Structural testing
-
--> maximizing condition and branch coverage
+- line coverage: 100% (96% overall, because the method is static. Therefore, the class is never instantiated)
+- branch coverage: 88% --> 2 out of 18 branches missed
+    line 19: if a '+' is in front of the integer within the string
+    line 20: the case where `s.charAt(i) = '+'` and the condition evaluates to false
+add:
+- T16: `s` contains an integer with a '+' sign in the beginning
+now:
+- 100% branch coverage 
 
 # Mutation testing

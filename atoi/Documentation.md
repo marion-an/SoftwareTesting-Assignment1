@@ -58,7 +58,25 @@ Output parameters:
 - -2^31 integer
 
 ## 5. Devise test cases
+- T1: `s` is null
+- T2: `s` is the empty string
+- T3: `s` is a nonempty string
+- T4: `s` doesn't contain any integer
+- T5: `s` contains a negative integer with leading whitespaces
+- T6: `s` contains a positive integer with leading whitespaces
+- T7: `s` contains a negative integer with leading zeroes
+- T8: `s` contains a positive integer with leading zeroes
+- T9: `s` is out of the lower range: -2^31 - 1
+- T10: `s` is exactly the lower range: -2^31
+- T11: `s` is out of the upper range: 2^31
+- T12: `s` is exactly the upper range: 2^31 - 1
+- T13: `s` contains an integer which is split by a character
 
+## 6. Automate the test cases
+see: [MyAtoiTest.java](src/test/java/zest/MyAtoiTest.java)
+
+## 7. Augment the test suite with creativity and experience
+- T14: `s` contains an integer which is split by a whitespace
 
 
 

@@ -64,6 +64,11 @@ class MyAtoiTest {
 
     @Test
     void splitInteger(){
-        assertEquals(123, MyAtoi.myAtoi("  123abc456"));
+        assertEquals(123, MyAtoi.myAtoi("123abc456"));
+    }
+
+    @Test
+    void splitIntegerByWhiteSpace(){
+        assertEquals(123, MyAtoi.myAtoi("123abc456"));
     }
 }

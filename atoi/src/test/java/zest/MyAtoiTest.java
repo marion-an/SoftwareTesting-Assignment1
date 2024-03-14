@@ -12,23 +12,36 @@ class MyAtoiTest {
     }
 
     @Test
-    void inputNoInteger() {
-        assertEquals(0, MyAtoi.myAtoi("abc"));
+    void inputEmptyString(){
+        assertEquals(0, MyAtoi.myAtoi(""));
     }
 
     @Test
-    void inputLeadingWhiteSpaces() {
-        assertEquals(-1, MyAtoi.myAtoi("              -1"));
+    void inputNonEmptyString(){
+        assertEquals(1, MyAtoi.myAtoi("1"));
     }
 
     @Test
-    void charactersInFrontOfString() {
-        assertEquals(0, MyAtoi.myAtoi("avc123"));
+    void outOfRangeLowerBoundary(){
+        // -214783648 is the lower bound of 32-bit signed integer range
+        assertEquals(-214783648, "-214783649");
     }
 
     @Test
-    void gapInBetween() {
-        assertEquals(45, MyAtoi.myAtoi("   +45 78"));
+    void lowerBoundary(){
+        // -214783648 is the lower bound of 32-bit signed integer range
+        assertEquals(-214783648, "-214783648");
     }
 
+    @Test
+    void outOfRangUpperBoundary(){
+        // 214783647 is the upper bound of 32-bit signed integer range
+        assertEquals(214783647, "214783648");
+    }
+
+    @Test
+    void upperBoundary(){
+        // 214783647 is the upper bound of 32-bit signed integer range
+        assertEquals(214783647, "214783647");
+    }
 }

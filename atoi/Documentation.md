@@ -39,7 +39,24 @@ void gapInBetween() {
 }
 ```
 
-## Explore possible inputs and outputs, and identify partitions
+## 3. Explore possible inputs and outputs, and identify partitions
+Input parameters:
+- `s` parameter: The string can be any string.
+  - null string
+  - empty string
+  - non-empty string
+  
+- no combination of input parameters possible, as only1 input parameter exists
+Output parameters:
+-  Integer (positive or negative)
+
+## 4. Analyze the boundaries
+- `s` having length 1
+- 2^31 - 1 integer
+- -2^31 integer
+
+## 5. Devise test cases
+
 
 
 # Structural testing

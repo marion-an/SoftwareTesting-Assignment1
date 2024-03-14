@@ -25,3 +25,11 @@ I
 palindrome/palindrome.iml,d\9\d946a7d39518cc4a77445e555cfe952e0394bf60
 ]
 -generate_parentheses/generate-parentheses.iml,b\4\b4f8eb129ace62d6b6f388e0f6b96c2548a09f0f
+>
+atoi/README.md,6\f\6f2ffea223003153f241743a8951af39c9c0c825
+D
+palindrome/README.md,3\e\3e7bd2d8fe818adc77f68b4a761617aaa7914dd7
+@
+Documentation.md,6\3\63eace3df5f52a7525be7047feb994622354890f
+j
+:combination_sum/src/test/java/zest/CombinationSumTest.java,9\2\923e69ae713e6272a45eebda0ab8266d43a32d81

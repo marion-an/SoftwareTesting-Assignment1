@@ -64,3 +64,6 @@ now:
 - 100% branch coverage 
 
 # Mutation testing
+- mutation coverage: 95% --> 20 out of 21 mutants were killed
+line 28: changed conditional boundary --> survived
+- This case is already addressed T10 and T12. Because we get the same result when we evaluate the condition to true in line 28 in case the conditional operator is changed to '>=' or if it evaluates to false if the conditional operator is '>' for 2^31 - 1 and -2^31, the program doesn't realise that the mutant actually would be killed if the results would differ.

@@ -41,25 +41,25 @@ class MyAtoiTest {
     @Test
     void outOfRangeLowerBoundary(){
         // -2147483647 is the lower bound of 32-bit signed integer range
-        assertEquals(-2147483648, MyAtoi.myAtoi("-2147483649"));
+        assertEquals(Integer.MIN_VALUE, MyAtoi.myAtoi("-2147483649"));
     }
 
     @Test
     void lowerBoundary(){
         // -2147483648 is the lower bound of 32-bit signed integer range
-        assertEquals(-2147483648, MyAtoi.myAtoi("-2147483648"));
+        assertEquals(Integer.MIN_VALUE, MyAtoi.myAtoi("-2147483648"));
     }
 
     @Test
     void outOfRangUpperBoundary(){
         // 2147483647 is the upper bound of 32-bit signed integer range
-        assertEquals(2147483647, MyAtoi.myAtoi("2147483648"));
+        assertEquals(Integer.MAX_VALUE, MyAtoi.myAtoi("2147483648"));
     }
 
     @Test
     void upperBoundary(){
         // 2147483647 is the upper bound of 32-bit signed integer range
-        assertEquals(2147483647, MyAtoi.myAtoi("2147483647"));
+        assertEquals(Integer.MAX_VALUE, MyAtoi.myAtoi("2147483647"));
     }
 
     @Test

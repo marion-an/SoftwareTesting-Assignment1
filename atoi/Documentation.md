@@ -58,6 +58,9 @@ Output parameters:
 ## 5. Devise test cases
 
 
+Bugs:
+upper and lower boundary
+
 
 # Structural testing
 

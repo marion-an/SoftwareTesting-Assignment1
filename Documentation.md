@@ -4,12 +4,14 @@
 ### 1. Understand the requirement, inputs, and outputs
 
 Method: `myAtoi(string s)`
+
 converts a string to a 32-bit signed integer
 
 - `s`: String to be converted.
     - if `s` is null, return 0
     - if `s` doesn't contain any digits to convert, return 0
-      return converted integer, or 0 if the input is null or if there are no digits to be converted
+
+return converted integer, or 0 if the input is null or if there are no digits to be converted
 
 ### 2. Explore the program
 We wrote some tests to see how the program behaves

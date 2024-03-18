@@ -106,20 +106,23 @@ There are two boundaries:
 - T6 `a` contains negative elements and the highest sum is to the left
 - T7 `a` contains negative elements and the highest sum is to the right
 - T8 `a` contains negative elements and the highest sum in the middle
+- T9 `a` contains two parts which will be the identical highest sum
 
 ### 6. Automate the test cases
 See file MaximumSubarrayTest
 
 ### 7. Augment the test_suite
-- T9 `a` contains only negative elements
+- T11 `a` contains a negative number which will be summed up into the sum
+- T10 `a` contains only negative elements
 
 ### Code adaptation
 The tests revealed a bug in the code: that was if an empty array was provided as input the method did not return 0 as was specified. This has been fixed by using a simple if condition check.
 
 ## Structural testing
-- Instruction coverage: `92%` => missing line 3 since maxSubArray is a static method, therefore the Object is never instantiated => can write a test case for this `T10` => new instruction coverage `100%` 
+- Instruction coverage: `92%` => missing line 3 since maxSubArray is a static method, therefore the Object is never instantiated => can write a test case for this `T11` => new instruction coverage `100%` 
 - Branch coverage: `100%` => all branches are covered
 
 ## Mutation testing
 - Mutation coverage of 100%
 - 5/5 Mutations were killed
+- no actions needed

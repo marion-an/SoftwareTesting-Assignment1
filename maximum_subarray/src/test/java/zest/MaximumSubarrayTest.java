@@ -16,7 +16,7 @@ class MaximumSubarrayTest {
     }
 
     @Test
-    void oneElementInputRetunsValue(){
+    void oneElementInputReturnsValue(){
         int[] a = {5};
         assertEquals(MaximumSubarray.maxSubArray(a),5);
     }
@@ -39,6 +39,12 @@ class MaximumSubarrayTest {
     void multipleElementsHighestSumOnLeftReturnsValue(){
         int[] a = {3,2,1,-10,2,3};
         assertEquals(MaximumSubarray.maxSubArray(a),6);
+    }
+
+    @Test
+    void multipleElementsHighestSumOnRightReturnsValue(){
+        int[] a = {3,2,1,-10,2,3,4};
+        assertEquals(MaximumSubarray.maxSubArray(a),9);
     }
 
     @Test

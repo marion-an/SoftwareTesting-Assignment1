@@ -81,3 +81,60 @@ see: [MyAtoiTest.java](atoi/src/test/java/zest/MyAtoiTest.java)
   Because we get the same result when we evaluate the condition to true in line 28 in case the conditional operator is 
   changed to '>=' or if it evaluates to false if the conditional operator is '>' for 2^31 - 1 and -2^31, the program 
   doesn't realise that the mutant actually would be killed if the results would differ.
+
+
+# Maximum_Subarray
+## Specification based Testing
+
+### 1.Requirements
+Method `maxSubArray(int[] a)` takes an integer Array as the input and gives out the highest possible sum of a subarray if the array is empty it should return 0, behaviour if the input is null is not defined.
+
+### 2. Exploring
+The program can take an array as input and seems to be working fine from some first manual tests
+
+### 3. Input/Output domains
+The Input is the `integer array a`
+- `a` can be empty
+- `a` can have one element
+- `a` can have multiple elements
+  - `a` can have only positive Numbers
+    - `the sum` will always be the whole array
+  - `a` can have negative numbers
+    - `the sum` can be strictly on the left
+    - `the sum` can be strictly on the right
+    - `the sum` can be in the middle of the array
+    - `the sum` can be twice in the array
+
+### 4. Boundaries
+There are two boundaries:
+- `empty array`
+- `one element array`
+
+### 5. Test Cases
+- T1 `a` is empty
+- T2 `a` has one element
+- T3 `a` has multiple elements
+- T4 `a` contains negative elements
+- T6 `a` contains negative elements and the highest sum is to the left
+- T7 `a` contains negative elements and the highest sum is to the right
+- T8 `a` contains negative elements and the highest sum in the middle
+- T9 `a` contains two parts which will be the identical highest sum
+
+### 6. Automate the test cases
+See file MaximumSubarrayTest
+
+### 7. Augment the test_suite
+- T11 `a` contains a negative number which will be summed up into the sum
+- T10 `a` contains only negative elements
+
+### Code adaptation
+The tests revealed a bug in the code: that was if an empty array was provided as input the method did not return 0 as was specified. This has been fixed by using a simple if condition check.
+
+## Structural testing
+- Instruction coverage: `92%` => missing line 3 since maxSubArray is a static method, therefore the Object is never instantiated => can write a test case for this `T11` => new instruction coverage `100%` 
+- Branch coverage: `100%` => all branches are covered
+
+## Mutation testing
+- Mutation coverage of 100%
+- 5/5 Mutations were killed
+- no actions needed

@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CombinationSumTest {
     @Test
@@ -94,6 +93,24 @@ class CombinationSumTest {
 
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(149, result.size());
+    }
+
+    @Test
+    void noCombinationSumUpToTarget() {
+        int[] candidates = {2, 4, 6};
+        int target = 7;
+
+        List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    void oneCandidate() {
+        int[] candidates = {1};
+        int target = 7;
+
+        List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
+        assertEquals(1, result.size());
     }
 
 

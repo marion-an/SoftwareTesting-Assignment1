@@ -50,13 +50,14 @@ Output parameters:
 - T7: 150 combinations
   - This test revealed a bug, the code didn't ensure that less than 150 combinations are created
 - T8: 149 combinations
+- T9: no combination of integers in `candidates` are equal to `target`
 
 
 ### 6. Automate the test cases
 see: [CombinationSumTest.java](combination_sum/src/test/java/zest/CombinationSumTest.java)
 
 ### 7. Augment the test suite with creativity and experience
-
+- T10: `candidates` only contains one integer
 
 ## Structural testing
 

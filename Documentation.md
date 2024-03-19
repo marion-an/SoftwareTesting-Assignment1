@@ -18,14 +18,14 @@ We wrote some tests to see how the program behaves
 
 ### 3. Explore possible inputs and outputs, and identify partitions
 Input parameters:
-- `s` parameter: The string can be any string.
+- `s` parameter: `s` can be any string.
     - null string
     - empty string
     - non-empty string
     - leading whitespaces
     - leading zeroes
 
-- no combination of input parameters possible, as only1 input parameter exists
+- no combination of input parameters possible, as only 1 input parameter exists
 
 Output parameters:
 -  Integer (positive or negative)

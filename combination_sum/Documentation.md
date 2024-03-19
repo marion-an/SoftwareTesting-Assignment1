@@ -18,12 +18,38 @@ if no combination of the `candidates` integers are possible to sum up to `target
 We wrote some tests to see how the program behaves
 
 ### 3. Explore possible inputs and outputs, and identify partitions
---> negative integers
+Input parameters: 
+- `candidates` parameter: `candidates` is an array with distinct (positive) integers
+  - empty array
+  - non-empty array
+- `target` parameter: `target` is an integer
+  - negative integers
+  - 0
+  - positive integers
+
+- combination of input parameters:
+  - all integers in `candidates` are larger than `target`
+  - combination of integers of `candidates` to sum up to `target` is possible
+  - no combination of integers in `candidates` are equal to `target`
+
+Output parameters:
+- list of all unique combinations of candidates where the chosen numbers sum to target
+- size of list < 150
 
 ### 4. Analyze the boundaries
-
+- `candidates` having size 1
+- `target` being 0
 
 ### 5. Devise test cases
+- T1: `candidates` is an empty array and `target` is 0
+- T2: `candidates` is an empty array and `target` is not zero
+- T3: `candidates` is a non-empty array and `target` is 0
+- T4: `candidates` is a non-empty array and `target` is not zero
+- T5: `candidates` is a non-empty array and `target` is less than zero
+- T6: all integers in `candidates` are larger than `target`
+- T7: 150 combinations
+  - This test revealed a bug, the code didn't ensure that less than 150 combinations are created
+- T8: 149 combinations
 
 
 ### 6. Automate the test cases

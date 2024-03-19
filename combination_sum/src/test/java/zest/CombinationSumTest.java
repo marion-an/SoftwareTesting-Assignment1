@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CombinationSumTest {
     @Test
@@ -17,7 +18,8 @@ class CombinationSumTest {
         );
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(1, result.size());
-        assertEquals(expected, result);
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
     @Test
@@ -27,7 +29,8 @@ class CombinationSumTest {
         List<List<Integer>> expected = Arrays.asList();
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(0, result.size());
-        assertEquals(expected, result);
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
     @Test
@@ -39,7 +42,8 @@ class CombinationSumTest {
         );
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(1, result.size());
-        assertEquals(expected, result);
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
     @Test
@@ -52,7 +56,8 @@ class CombinationSumTest {
         );
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(2, result.size());
-        assertEquals(expected, result);
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
     @Test
@@ -62,7 +67,8 @@ class CombinationSumTest {
         List<List<Integer>> expected = Arrays.asList();
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(0, result.size());
-        assertEquals(expected, result);
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
     @Test
@@ -73,7 +79,8 @@ class CombinationSumTest {
         );
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(0, result.size());
-        assertEquals(expected, result);
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
     @Test
@@ -111,6 +118,40 @@ class CombinationSumTest {
 
         List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
         assertEquals(1, result.size());
+    }
+
+    @Test
+    void notSorted() {
+        int[] candidates = {6, 1, 2, 3};
+        int target = 5;
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1, 1, 1, 1, 1),
+                Arrays.asList(1, 1, 1, 2),
+                Arrays.asList(1, 2, 2),
+                Arrays.asList(1, 1, 3),
+                Arrays.asList(2, 3)
+        );
+        List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
+        assertEquals(5, result.size());
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
+    }
+
+    @Test
+    void descendingSort() {
+        int[] candidates = {6, 3, 2, 1};
+        int target = 5;
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1, 1, 1, 1, 1),
+                Arrays.asList(1, 1, 1, 2),
+                Arrays.asList(1, 2, 2),
+                Arrays.asList(1, 1, 3),
+                Arrays.asList(2, 3)
+        );
+        List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
+        assertEquals(5, result.size());
+        assertTrue(expected.containsAll(result));
+        assertTrue(result.containsAll(expected));
     }
 
 

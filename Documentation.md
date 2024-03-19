@@ -58,14 +58,16 @@ see: [MyAtoiTest.java](atoi/src/test/java/zest/MyAtoiTest.java)
 - T15: `s` starts with a '-' sign but no integers afterwards
 
 ## Structural testing
-- line coverage: 100% (96% overall, because the method is static. Therefore, the class is never instantiated)
+- line coverage: 100% (96% overall, because the method is static. The class is never instantiated)
 - branch coverage: 88% --> 2 out of 18 branches missed
 
   line 19: if a '+' is in front of the integer within the string
 
   line 20: the case where `s.charAt(i) = '+'` and the condition evaluates to false
+
   add:
 - T16: `s` contains an integer with a '+' sign in the beginning
+
   now:
 - 100% branch coverage
 

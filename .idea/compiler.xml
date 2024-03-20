@@ -9,9 +9,10 @@
         <module name="frac-2-dec" />
         <module name="palindrome" />
         <module name="combination-sum" />
-        <module name="median-of-arrays" />
-        <module name="generate-parentheses" />
         <module name="atoi-test" />
+        <module name="generate-parentheses" />
+        <module name="maximum_subarray" />
+        <module name="median-of-arrays" />
         <module name="maximum-subarray" />
         <module name="needle-in-hay" />
       </profile>

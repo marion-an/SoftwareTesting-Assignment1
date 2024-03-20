@@ -126,3 +126,71 @@ The tests revealed a bug in the code: that was if an empty array was provided as
 - Mutation coverage of 100%
 - 5/5 Mutations were killed
 - no actions needed
+
+
+
+# needle_in_hay
+## Specification based Testing
+
+### 1.Requirements
+Method `find(String haystack, String needl)` takes two strings needle and haystack and returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+If any string is null, return -1. If both strings are empty, return 0.
+
+### 2. Exploring
+Test various inputs
+
+### 3. Input/Output domains
+The Input are the two Strings `haystack` and `needle`
+- `haystack` can be null
+- `haystack` can be an empty string
+- `haystack` can be a non-empty String
+- `needle` can be null
+- `needle` can be an empty string
+- `needle` can be a non-empty String
+- `needle` is in `haystack`
+- `needle` is not in`haystack`
+
+### 4. Boundaries
+There are two boundaries:
+- `haystack` having length 1
+- `needle` having length 1
+- `needle` is in `haystack` exactly once
+
+### 5. Test Cases
+- T1 `haystack` and `needle` are null
+- T2 `haystack` is null
+- T3 `needle` is null
+- T4 `haystack` is empty
+- T5 `needle` is empty
+- T6 `needle` and `haystack` are empty
+##### `haystack` has length 1:
+- T7 `needle` is not in `haystack`
+- T8 `needle` is in haystack
+- T8 `needle` has length > 1
+##### `needle` has length 1:
+- T9 `needle` is in `haystack`
+- T10 `needle` is not in `haystack`
+- T11 `needle` is in `haystack` more than once
+##### `haystack` and `needle` have length > 1:
+- T12 `needle` is in `haystack`
+- T13 `needle` is in `haystack` more than once
+- T14 `needle` is not in `haystack` 
+
+### 6. Automate the test cases
+See file NeedleInHayTest
+
+### 7. Augment the test_suite
+- T15 `needle` is in `haystack` and `haystack` is a sentence
+- T16 Test instantiation of class
+
+### Code adaptation
+No bugs revealed
+
+## Structural testing
+- Instruction coverage: `95%` => missing lines since NeedleInHay is a static method, therefore the Object is never instantiated => can write a test case for this `T16` => new instruction coverage `100%`
+- Branch coverage: `100%` => all branches are covered
+
+## Mutation testing
+- Mutation coverage of 100%
+- 19/19 Mutations were killed
+- no actions needed

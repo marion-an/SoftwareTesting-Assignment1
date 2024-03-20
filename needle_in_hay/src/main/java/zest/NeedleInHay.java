@@ -6,6 +6,11 @@ class NeedleInHay {
         if (haystack.isEmpty() && needle.isEmpty()) return 0;
         int lenHay = haystack.length(), lenNed = needle.length();
 
+        //Need to add a condition to check if lenNed == 0
+        if(lenNed == 0){
+            return -1;
+        }
+
         for(int i = 0; i < (lenHay-lenNed + 1); i++)
         {
             if(haystack.charAt(i) == needle.charAt(0))

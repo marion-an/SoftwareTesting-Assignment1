@@ -1,9 +1,10 @@
 package zest;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.of;
 import org.junit.jupiter.params.provider.MethodSource;
 import zest.PalindromeOne;
@@ -11,19 +12,29 @@ import zest.PalindromeOne;
 import java.util.stream.Stream;
 
 class PalindromeOneTest {
-    @ParameterizedTest
-    @MethodSource("generator")
-    void test (int x, boolean expectedBool){
-        assertEquals(PalindromeOne.isPalindrome(x), expectedBool);
+    @Test
+    void xIsNegative(){
+        assertFalse(PalindromeOne.isPalindrome(-1));
     }
 
-    static Stream<Arguments> generator() {
-        return Stream.of(
-                of(-1, false),
-                of(1048576, false),
-                of(0, true),
-                of(1048401, true)
-        );
+    @Test
+    void xIsPositive(){
+        assertFalse(PalindromeOne.isPalindrome(10));
+        assertTrue(PalindromeOne.isPalindrome(11));
+        assertFalse(PalindromeOne.isPalindrome(1049401));
+        assertTrue(PalindromeOne.isPalindrome(1048401));
+    }
+
+    @Test
+    void xIsZero(){
+        assertTrue(PalindromeOne.isPalindrome(0));
+    }
+
+    @Test
+    void instantiateClassAndCheckIfWorks(){
+        int[] a = {1};
+        PalindromeOne p = new PalindromeOne();
+        assertTrue(p.isPalindrome(0));
     }
 
 

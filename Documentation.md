@@ -245,7 +245,7 @@ The Input are the two Strings `haystack` and `needle`
 - `needle` is not in`haystack`
 
 ### 4. Boundaries
-There are two boundaries:
+There are three boundaries:
 - `haystack` having length 1
 - `needle` having length 1
 - `needle` is in `haystack` exactly once
@@ -282,6 +282,56 @@ No bugs revealed
 
 ## Structural testing
 - Instruction coverage: `95%` => missing lines since NeedleInHay is a static method, therefore the Object is never instantiated => can write a test case for this `T16` => new instruction coverage `100%`
+- Branch coverage: `100%` => all branches are covered
+
+## Mutation testing
+- Mutation coverage of 100%
+- 19/19 Mutations were killed
+- no actions needed
+
+# palindrome
+## Specification based Testing
+
+### 1.Requirements
+Given an integer `x`, return `true` if `x` is palindrome integer.
+Only integers >= 0 can be palindromes. Further constraints are: `-2^20 <= x <= 2^20 - 1`
+
+### 2. Exploring
+Test various inputs
+
+### 3. Input/Output domains
+The Input is the integer x
+- `x` is positive
+- `x` is negative
+- `x` is smaller than the minimum 
+- `x` is larger than the maximum
+
+### 4. Boundaries
+There are three boundaries:
+- `x` is equal to the minimum
+- `x` is equal to the maximum
+- `x` is 0
+
+### 5. Test Cases
+- T1 `x` is negative
+- T2 `x` is positive and not a palindrome
+- T3 `x` is a palindrome
+- T4 `x` is larger than the maximum and a palindrome (1049401)
+- T5 `x` is 0
+- T6 `x` is largest possible palindrome that is smaller than maximum (1048401)
+
+### 6. Automate the test cases
+See file PalindromeOneTest and PalindromeTwoTest
+
+### 7. Augment the test_suite
+- T7 Test instantiation of class
+
+### Code adaptation
+PalindromeOne fails for a Palindrome that is larger than the maximum integer.
+So need to add a condition to make sure `isPalindrome` returns false if `x` > 2^20 -1
+
+## Structural testing
+- Instruction coverage: Both PalindromeOne and PalindromeTwo miss 3 lines since isPalindrome is a static method, therefore the Object is never instantiated => can write a test case for this `T16` => new instruction coverage `100%`
 - Branch coverage: `100%` => all branches are covered
 
 ## Mutation testing

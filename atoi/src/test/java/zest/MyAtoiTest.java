@@ -40,7 +40,7 @@ class MyAtoiTest {
 
     @Test
     void outOfRangeLowerBoundary(){
-        // -2147483647 is the lower bound of 32-bit signed integer range
+        // -2147483648 is the lower bound of 32-bit signed integer range
         assertEquals(Integer.MIN_VALUE, MyAtoi.myAtoi("-2147483649"));
     }
 

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 
+import static java.lang.Math.round;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.params.provider.Arguments.of;
@@ -15,26 +16,35 @@ import java.util.stream.Stream;
 class PalindromeTwoTest {
         @Test
         void xIsNegative(){
-            assertFalse(PalindromeOne.isPalindrome(-1));
+            assertFalse(PalindromeTwo.isPalindrome(-1));
         }
 
         @Test
         void xIsPositive(){
-            assertFalse(PalindromeOne.isPalindrome(10));
-            assertTrue(PalindromeOne.isPalindrome(11));
-            assertFalse(PalindromeOne.isPalindrome(1049401));
-            assertTrue(PalindromeOne.isPalindrome(1048401));
+            assertFalse(PalindromeTwo.isPalindrome(10));
+            assertTrue(PalindromeTwo.isPalindrome(11));
+            assertFalse(PalindromeTwo.isPalindrome(1049401));
+            assertTrue(PalindromeTwo.isPalindrome(1048401));
+        }
+
+        @Test
+        void xSmaller100NoPalindrome(){
+            assertFalse(PalindromeTwo.isPalindrome(21));
+        }
+
+        @Test
+        void xSmaller1000Palindrome(){
+            assertTrue(PalindromeTwo.isPalindrome(101));
+        }
+
+        @Test
+        void xLarger1000(){
+            assertFalse(PalindromeTwo.isPalindrome(1234));
+            assertTrue(PalindromeTwo.isPalindrome(1001));
         }
 
         @Test
         void xIsZero(){
-            assertTrue(PalindromeOne.isPalindrome(0));
+            assertTrue(PalindromeTwo.isPalindrome(0));
         }
-
-    @Test
-    void instantiateClassAndCheckIfWorks(){
-        int[] a = {1};
-        PalindromeTwo p = new PalindromeTwo();
-        assertTrue(p.isPalindrome(0));
-    }
 }

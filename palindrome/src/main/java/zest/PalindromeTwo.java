@@ -7,6 +7,10 @@ public class PalindromeTwo {
 
     public static boolean isPalindrome(int x) {
 
+        if(x > Math.pow(2, 20) - 1){
+            return false;
+        }
+
         if (x < 0) return false;
         if(x == 0) return true;
         if (x % 10 == 0) return false;

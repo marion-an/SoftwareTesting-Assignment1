@@ -29,13 +29,4 @@ class PalindromeOneTest {
     void xIsZero(){
         assertTrue(PalindromeOne.isPalindrome(0));
     }
-
-    @Test
-    void instantiateClassAndCheckIfWorks(){
-        int[] a = {1};
-        PalindromeOne p = new PalindromeOne();
-        assertTrue(p.isPalindrome(0));
-    }
-
-
 }

@@ -327,14 +327,36 @@ See file PalindromeOneTest and PalindromeTwoTest
 - T7 Test instantiation of class
 
 ### Code adaptation
-PalindromeOne fails for a Palindrome that is larger than the maximum integer.
-So need to add a condition to make sure `isPalindrome` returns false if `x` > 2^20 -1
+In the test `xIsPositive` the assertion ` assertFalse(PalindromeOne.isPalindrome(1049401))` fails meaning PalindromeOne fails for a Palindrome that is larger than the maximum integer.
+The same goes for PalindromeTwo.
+
+So need to add a condition to make sure `isPalindrome` returns false if `x` > 2^20 -1.
+
+Additionally, PalindromeTwo does not return true for `x` = 0 in the test `xIsZero` -> add a if statement that returns true if `x` = 0.
 
 ## Structural testing
-- Instruction coverage: Both PalindromeOne and PalindromeTwo miss 3 lines since isPalindrome is a static method, therefore the Object is never instantiated => can write a test case for this `T16` => new instruction coverage `100%`
-- Branch coverage: `100%` => all branches are covered
+#### PalindromeOne
+- Instruction coverage: `100%`
+- Branch coverage: `100%`
+#### PalindromeTwo
+- Instruction coverage: `83%`
+- Branch coverage: `72%`
+
+Missed lined 17, 18 and 26 -> added tests `xSmaller100NoPalindrome`, `xSmaller1000Palindrome` and `xLarger1000`
+=> Branch and Instruction Coverage: `100%`
 
 ## Mutation testing
-- Mutation coverage of 100%
-- 19/19 Mutations were killed
-- no actions needed
+- PalindromeOne: Mutation Coverage: 75% -> 9 out of 12 mutants were killed
+
+  -> line 6: Replaced double subtraction with addition → SURVIVED -> does not matter if `-1` or `+1`, there is no palindrome within this range
+
+  -> line 6: changed conditional boundary → SURVIVED -> covered with `T4`
+
+  -> line 13: changed conditional boundary → SURVIVED
+- PalindromeTwo: Mutation Coverage: 70%
+
+  -> line 10: Replaced double subtraction with addition → SURVIVED -> same reasoning as above
+
+  -> line 10: changed conditional boundary → SURVIVED -> same reasoning as above
+
+  -> line 17: negated conditional → SURVIVED -> covered with `T4`

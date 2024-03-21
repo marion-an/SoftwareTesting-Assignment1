@@ -353,7 +353,7 @@ Missed lined 17, 18 and 26 -> added tests `xSmaller100NoPalindrome`, `xSmaller10
   -> line 6: changed conditional boundary → SURVIVED -> covered with `T4`
 
   -> line 13: changed conditional boundary → SURVIVED
-- PalindromeTwo: Mutation Coverage: 70%
+- PalindromeTwo: Mutation Coverage: 70% -> 28 out of 40 mutants were killed
 
   -> line 10: Replaced double subtraction with addition → SURVIVED -> same reasoning as above
 

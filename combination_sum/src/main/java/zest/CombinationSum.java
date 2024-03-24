@@ -19,6 +19,7 @@ public class CombinationSum {
                 cur.add(candidates[i]);
                 getResult(result, cur, candidates, target - candidates[i], i);
                 cur.remove(cur.size() - 1);
+
             }
         } else if (target == 0) {
             result.add(new ArrayList<Integer>(cur));

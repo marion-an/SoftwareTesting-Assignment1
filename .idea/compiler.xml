@@ -12,6 +12,7 @@
         <module name="median-of-arrays" />
         <module name="generate-parentheses" />
         <module name="atoi-test" />
+        <module name="maximum_subarray" />
         <module name="maximum-subarray" />
         <module name="needle-in-hay" />
       </profile>

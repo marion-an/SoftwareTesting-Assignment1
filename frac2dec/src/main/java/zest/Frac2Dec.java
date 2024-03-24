@@ -5,6 +5,9 @@ import java.util.HashMap;
 class Frac2Dec {
 
     public static String fractionToDecimal(int numerator, int denominator) {
+
+        if (denominator == 0) return null;
+
         if (numerator == 0) return "0";
 
         StringBuilder res = new StringBuilder();
@@ -38,6 +41,7 @@ class Frac2Dec {
                 map.put(num, res.length());
             }
         }
+        if (res.length() > 103) return null;
         return res.toString();
     }
 }

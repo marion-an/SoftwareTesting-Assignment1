@@ -187,6 +187,8 @@ The Input is the `integer array a`
     - `the sum` can be in the middle of the array
     - `the sum` can be twice in the array
 
+The Output is an `integer` sum which can take any integer value
+
 ### 4. Boundaries
 There are two boundaries:
 - `empty array`
@@ -203,7 +205,7 @@ There are two boundaries:
 - T9 `a` contains two parts which will be the identical highest sum
 
 ### 6. Automate the test cases
-See file MaximumSubarrayTest
+see: [MaximumSubarrayTest](maximum_subarray/src/test/java/zest/MaximumSubarrayTest.java)
 
 ### 7. Augment the test_suite
 - T11 `a` contains a negative number which will be summed up into the sum
@@ -222,6 +224,98 @@ The tests revealed a bug in the code: that was if an empty array was provided as
 - no actions needed
 
 
+# Median of arrays
+## Specification based Testing
+
+### 1. Requirements
+The Method `findMedianSortedArrays(int[] nums1, int[] nums2)` takes two sorted integer arrays as input and returns the median of the two. If either of the arrays is null or not sorted the returned value will be 0
+
+### 2. Exploring
+While exploring the program with some inputs it seems to be working for ordered arrays with multiple elements. However if two empty arrays are given the program returns `-1.0`. This behaviour is not specified in the readme, means the needed behaviour would need to be clarified with the stakeholders. Also the program seems to return `-1.0` for input arrays with a single elements.
+
+### 3. Input/Output domains
+The input are two integer arrays `nums1` and `nums2` both arrays can be null, empty, one element, multiple elements, sorted, unsorted, only positive numbers, including negative numbers. Additionally the combined size of the arrays can either be odd or even. Note in the following list for simplicity redundant information is not listed e.g. nums1 and nums2 with exchanged values.
+- `nums1` is null `nums2` is null
+- `nums1` is null `nums2` is empty
+- `nums1` is null `nums2` has 1 element
+- `nums1` is null `nums2` has multiple elements total size is even
+- `nums1` is null `nums2` has multiple elements total size is odd
+- `nums1` is null `nums2` has multiple elements the arrays can contain negative elements
+- `nums1` is empty `nums2` is empty
+- `nums1` is empty `nums2` has 1 element
+- `nums1` is empty `nums2` has multiple elements total size is even
+- `nums1` is empty `nums2` has multiple elements total size is odd
+- `nums1` is empty `nums2` has multiple elements the arrays can contain negative elements
+- `nums1` has one element `nums2` has 1 element
+- `nums1` has one element `nums2` has multiple elements total size is even
+- `nums1` has one element `nums2` has multiple elements total size is odd
+- `nums1` has one element `nums2` has multiple elements the arrays can contain negative elements
+- `nums1` multiple elements `nums2` has multiple elements total size is even
+- `nums1` multiple elements `nums2` has multiple elements total size is odd
+- `nums1` multiple elements `nums2` has multiple elements the arrays can contain negative elements
+
+The output is a double which is the median of the two arrays
+
+### 4. Boundaries
+- `nums1` `nums2` is null
+- `nums1` or `nums2` is empty
+- `nums1` or `nums2` has one element
+- `nums1` or `nums2` have multiple elements
+- `nums1` and `nums2` have a combined length of 0
+- `nums1` and `nums2` have a combined length of 1
+- `nums1` and `nums2` have a combined length of 2
+
+### 5. Test Cases
+- `nums1` is null, `nums2` will contain multiple ordered elements
+- `nums1` is not ordered, `nums2` will contain multiple ordered elements
+
+#### `nums1` is empty
+- `nums2` is empty => will not be tested since behaviour not specified (see reasoning in 2)
+- `nums2` has one element
+- `nums2` has multiple elements (even number)
+- `nums2` has multiple elements (odd number)
+
+#### `nums1` has one element
+- `nums2` has one element
+- `nums2` has multiple elements (even number)
+- `nums2` has multiple elements (odd number and can contain negative elements)
+
+#### `nums1` has multiple elements (even amount)
+- `nums2` has multiple elements (even amount)
+
+### 6. Automate the test cases
+see: [MedianOfArrayTest](median_of_arrays/src/test/java/zest/MedianOfArraysTest.java)
+
+### 7. Augment the test suite
+- `nums1` has multiple elements (even amount) `nums2` has multiple elements (odd number) - check that with both arrays having elements and total size being odd still works
+- test instantiation of class in a test in case it fails - provides clear information
+
+### Code adaptation
+The tests revealed no bug in the code
+
+## Structural testing
+- Instruction coverage 93%
+- Branch coverage 82%
+- 
+Upon inspecting the code it becomes apparent that a case is missing with two empty lists. In the code it is easy to see that if there are two empty lists it should return -1. Let's verify it with a test (it works)
+
+new coverage
+- Instruction coverage 93%
+- Branch coverage 82%
+
+it is not needed to get to a 100% code coverage since the remaining uncovered branches/instructions are the same thing just for the other array. If it works for one of the arrays and the code is the same with just the variable replaced it should also work for the other.
+
+## Mutation testing
+- Mutation coverage 91%
+- 40/46 Mutants killed
+
+reasons to test or not:
+- changed conditional boundary on line 19 survived. This is since there is no test which checks if the array is presumed to be sorted if there are 2 times the same number, let's write a test case for this. Indeed for this the test case and since the Readme does not specify that it is not allowed to have two times the same value we consider this a bug -> adapt the code (line 19 >= to >).
+- replaced integer addition with subtraction on line 32 survived. This is since the line checks if there is an even number of elements in the array by adding the lengths and evaluating `sum(lengths) % 2 == 0` however this returns true if we either add the lengths or subtract them. Therefore all tests are still expected to pass. Therefore the mutant should survive and no new tests are required.
+- replaced int return with 0 on line 10 survived. This is because it is not covered, however it is visible that line 12 which does the same for the other array is covered and kills the equivalent mutant
+
+-new mutation coverage at 93%
+- 41/46 mutants killedl
 
 # needle_in_hay
 ## Specification based Testing

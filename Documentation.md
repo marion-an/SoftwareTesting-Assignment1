@@ -234,7 +234,18 @@ The Method `findMedianSortedArrays(int[] nums1, int[] nums2)` takes two sorted i
 While exploring the program with some inputs it seems to be working for ordered arrays with multiple elements. However if two empty arrays are given the program returns `-1.0`. This behaviour is not specified in the readme, means the needed behaviour would need to be clarified with the stakeholders. Also the program seems to return `-1.0` for input arrays with a single elements.
 
 ### 3. Input/Output domains
-The input are two integer arrays `nums1` and `nums2` both arrays can be null, empty, one element, multiple elements, sorted, unsorted, only positive numbers, including negative numbers. Additionally the combined size of the arrays can either be odd or even. Note in the following list for simplicity redundant information is not listed e.g. nums1 and nums2 with exchanged values.
+
+possible input for `nums1` respectively `nums2`
+- `input arrays` can be null
+- `input arrays` can be empty
+- `input arrays` can have one element
+- `input arrays` can have multiple elements
+- `input arrays` can have even amount of elements
+- `input arrays` can have odd amount of elements
+- `input arrays` can have only positive elements
+- `input arrays` can have negative elements
+
+combination of input parameters
 - `nums1` is null `nums2` is null
 - `nums1` is null `nums2` is empty
 - `nums1` is null `nums2` has 1 element

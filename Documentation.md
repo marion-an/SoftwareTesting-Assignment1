@@ -164,6 +164,205 @@ see: [CombinationSumTest.java](combination_sum/src/test/java/zest/CombinationSum
 - mutation coverage: 100% --> 15 out of 15 mutants were killed
 
 
+# frac2dec
+## Specification-based testing
+
+### 0. Notes and comments
+
+we added in the code [if (denominator == 0) return null;] as it was specifiec by documentation but not implemented in the original code
+
+we assume the function is given 2 integers (and no NULL or other types), so we don't test the other types of input, as specified by documentation
+
+We set up [if (res.length() > 103) return null;] as it's specified in the documentation that the output length should be less than 104
+
+### 1. Understand the requirement, inputs, and outputs
+
+The program converts a fraction into decimal numbers, repeating fractional part are enclosed in parenthesis
+The inputs are 2 integers parameters, representing the the numerator and the denominator of the fraction.
+The program returns the decimal of the fraction as a String (any solution if there are multiple)
+it's return length will be less than 104 and it should return null in case of the denominator is 0
+
+
+### 2. Explore the program
+wrote some tests to see how the program behaves
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+Input parameters:
+- `numerator` integer parameter
+  - 0
+  - positive integer
+  - negative integer
+  - integer with zeroes to the left
+
+
+- `denominator` integer parameter
+  - 0
+  - positive integer
+  - negative integer
+  - integer with zeroes to the left
+
+- combination of `numerator` and `denominator`
+  - both positive
+  - one positive and one negative
+  - both negative
+
+  - `numerator` and `denominator` such that we get a non-periodic decimal
+  - `numerator` and `denominator` such that we get a periodic decimal
+
+
+Output parameters:
+-  String (periodic decimal)
+-  String (noon-periodic decimal)
+-  null
+
+### 4. Analyze the boundaries
+
+-  Denominator = 0
+-  Numerator = 0
+-  Output of length 104
+
+### 5. Devise test cases
+
+
+- T1: `numerator` is zero
+- T2: `denominator` is zero
+
+- T3: `numerator` and `denominator` both positive
+- T4: `numerator` is positive and `denominator` is negative
+- T5: `numerator` and `denominator` both negative
+
+- T6: fraction is a normal integer without comma
+
+- T7: fraction is non-periodic smaller than 1
+- T8: fraction is non-periodic only after some digits
+
+- T9: fraction is periodic smaller than 1
+- T10: fraction is periodic only after some digits
+
+- T11: fraction is non-periodic bigger than 1
+- T12: fraction is periodic bigger than 1
+
+- T13: fraction is periodic (multiple digit)
+- T14: fraction is periodic (multiple digit and same number can reoccur)
+
+- T15: Boundary of output (output length 103)
+
+- T16: `numerator` has a leading zero
+- T17: `denominator` has a leading zero
+
+
+
+### 6. Automate the test cases
+see: [Frac2DecTest.java](frac2dec/src/test/java/zest/Frac2DecTest.java)
+
+### 7. Augment the test suite with creativity and experience
+
+- T18: Boundary of output (output length 104)
+
+## Structural testing
+
+- line coverage: 100% (97% overall, because the method is static. Therefore, the class is never instantiated)
+- branch coverage: 100% --> 0 out of 18 branches missed
+
+no modification needed
+
+
+## Mutation testing
+
+- mutation coverage: 91% --> 21 out of 23 mutants were killed
+
+both mutants concerns the same line
+line 15: changed conditional boundary → SURVIVED
+
+[   res.append(((numerator > 0) ^ (denominator > 0)) ? "-" : "");    ]
+
+Even with changed conditinal boundary > to ≥, it still work as intented as we numerator or the denominator are still both non-negative.
+Case also tested with T1 and T2
+
+
+# generateParentheses
+## Specification-based testing
+
+### 0. Notes and comments
+
+We change the code to also return an empty array when `n` is bigger than 8 to respect the constraint.
+
+[   if (n<=0  || n >=9) return combinations;   ]
+
+### 1. Understand the requirement, inputs, and outputs
+
+We give the program an integer `n` as pairs of parentheses, the function generate all combinations of well-formed parentheses.
+if `n` is zero or negative, we return an empty array
+
+As the constraint only limits `n` ≤ 8, we return also an empty array if `n` is higher.
+
+we assume the input are only integers and no other types
+
+
+### 2. Explore the program
+wrote some tests to see how the program behaves
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+  Input parameters:
+  `n` integer parameter
+  - positive integer
+  - negative integer
+  - integer leading with zeroes
+
+  Output parameters:
+-  Empty array of string
+-  Array of string
+
+### 4. Analyze the boundaries
+
+-  lower bound: n = 1
+-  upper bound: n = 8
+
+we test also n = 0 and n = 9
+
+### 5. Devise test cases
+
+
+- T1: `n` is negative
+- T2: `n` is out of constraint (n=0)
+- T3: `n` is out of constraint (n=9)
+
+- T4: `n` is valid interger with leading zero
+
+- T5: `n` from 1 to 8 (we brute force all values)
+
+
+### 6. Automate the test cases
+see: [GenerateParenthesesTest.java](generate_parentheses/src/test/java/zest/GenerateParenthesesTest.java)
+
+
+## Structural testing
+
+- line coverage: 100% (96% overall, because the method is static. Therefore, the class is never instantiated)
+- branch coverage: 100% --> 0 out of 16 branches missed
+
+no modification needed
+
+
+## Mutation testing
+
+
+- mutation coverage: 95% --> 21 out of 22 mutants were killed
+
+concerning line 10:
+replaced return value with Collections.emptyList for zest/GenerateParentheses::generateParentheses → SURVIVED
+
+original:
+[   if (n<=0  || n >=9) return combinations;    ]
+
+on line 9:
+List<String> combinations = new ArrayList();
+
+in this mutation, we replace the `combinations` with `Collections.emptyList`, both element are empty, as it is the outer boundary case, thus resulting in the same result, hence why the mutation survived.
+We can safely ignore this case
+
 
 # Maximum_Subarray
 ## Specification based Testing

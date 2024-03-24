@@ -3,13 +3,14 @@ package zest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class Frac2DecTest {
 
     @Test
     void inputsAreZero() {
         assertEquals("0", Frac2Dec.fractionToDecimal(0,1));   //T1
-        assertEquals(null, Frac2Dec.fractionToDecimal(1,0));   //T2
+        assertNull(Frac2Dec.fractionToDecimal(1, 0));   //T2
     }
 
     @Test
@@ -52,7 +53,7 @@ class Frac2DecTest {
     @Test
     void outputLengthBoundary() {
         assertEquals("0.(005025125628140703517587939698492462311557788944723618090452261306532663316582914572864321608040201)", Frac2Dec.fractionToDecimal(1, 199)); //T15
-        assertEquals(null, Frac2Dec.fractionToDecimal(1, 60101)); //T18
+        assertNull(Frac2Dec.fractionToDecimal(1, 60101)); //T18
     }
 
     @Test
